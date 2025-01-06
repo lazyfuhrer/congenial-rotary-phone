@@ -3,7 +3,7 @@ require('dotenv').config({ path: '../server/.env' });
 const fs = require('fs');
 
 // Get the contract ABI and bytecode
-const contractJSON = require('../artifacts/contracts/FunToken.sol/FunToken.json');
+const contractJSON = require('../artifacts/contracts/SimpleStorage.sol/SimpleStorage.json');
 const abi = contractJSON.abi;
 const bytecode = contractJSON.bytecode;
 
@@ -15,14 +15,9 @@ async function deploy() {
 
         const contract = new web3.eth.Contract(abi);
 
-        const initialSupply = 1500000;
-        const tokenName = "FunToken";
-        const tokenSymbol = "FUN";
-        const decimalUnits = 18;
-
         const deploy = contract.deploy({
             data: bytecode,
-            arguments: [initialSupply, tokenName, tokenSymbol, decimalUnits]
+            arguments: [25]
         });
 
         const gas = await deploy.estimateGas();
