@@ -7,7 +7,7 @@ const axios = require('axios');
 const app = express();
 
 // Connect Database
-// connectDB();
+connectDB();
 
 // Init Middleware
 app.use(express.json());
@@ -23,6 +23,7 @@ app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/posts', require('./routes/api/posts'));
 app.use('/api/tokens', require('./routes/api/tokens'));
 app.use('/api/token-pairs', require('./routes/api/tokenPairs'));
+app.use('/api/web3', require('./routes/api/web3'));
 
 // Serve static assets in production
 if (process.env.NODE_ENV === 'production') {
