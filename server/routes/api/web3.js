@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { Web3 } = require('web3');
 // import contract abi
+const { abi: contractABI } = require('../../../artifacts/contracts/MyContract.sol/MyContract.json');
 require('dotenv').config();
 
 // Initialize web3 with your provider
